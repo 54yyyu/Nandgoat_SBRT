@@ -1,0 +1,55 @@
+:root {
+    --keySize: 50px;
+}
+
+#output {
+    display: block;
+    width: 500px;
+    height: 500px;
+    color: black;
+    font-weight: bold;
+    overflow-y: auto;
+    background-color: lime;
+}
+
+#grid {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, var(--keySize));
+    grid-template-rows: repeat(2, var(--keySize));
+    grid-template-areas: ". w . . . . ." "a s d . j k .";
+    gap: 2px;
+}
+
+#w {
+    grid-area: w;
+}
+
+#a {
+    grid-area: a;
+}
+
+#s {
+    grid-area: s;
+}
+
+#d {
+    grid-area: d;
+}
+
+#j {
+    grid-area: j;
+}
+
+#k {
+    grid-area: k;
+}
+
+#grid > button {
+    background-color: yellow;
+    border: none;
+}
+
+#grid > button[on] {
+    background-color: red;
+}
