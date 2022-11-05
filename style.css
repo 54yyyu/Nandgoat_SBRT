@@ -1,5 +1,25 @@
+* {
+    font-family: sans-serif;
+}
+
+#faceWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#face {
+    display: inline-block;
+    text-align: center;
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-radius: 100%;
+    padding: 1000px 40px 50px;
+    margin: -1000px -80px 0;
+}
+
 :root {
-    --keySize: 50px;
+    --keySize: 100px;
 }
 
 #output {
@@ -12,44 +32,51 @@
     background-color: lime;
 }
 
-#grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, var(--keySize));
-    grid-template-rows: repeat(2, var(--keySize));
-    grid-template-areas: ". w . . . . ." "a s d . j k .";
-    gap: 2px;
+#controls {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
-#w {
-    grid-area: w;
+.flex {
+    display: flex;
 }
 
-#a {
-    grid-area: a;
-}
-
-#s {
-    grid-area: s;
-}
-
-#d {
-    grid-area: d;
-}
-
-#j {
-    grid-area: j;
-}
-
-#k {
-    grid-area: k;
-}
-
-#grid > button {
+#tapButtons button, .wasdLayout button {
     background-color: yellow;
-    border: none;
+    width: var(--keySize);
+    height: var(--keySize);
+    font-weight: bold;
+    margin: 2px;
 }
 
-#grid > button[on] {
+#tapButtons button[on], .wasdLayout button[on] {
     background-color: red;
+}
+
+.wasdLayout > * {
+    display: flex;
+    justify-content: center;
+}
+
+#nose {
+    text-align: center;
+    font-size: 60px;
+    margin-top: -50px;
+}
+
+#mouth {
+    text-align: center;
+    font-size: 200px;
+    margin-top: -120px;
+    padding-bottom: 50px;
+    transform: scaleX(1.5);
+}
+
+.ear {
+    font-size: 50px;
+}
+
+.inverse {
+    transform:scaleX(-1);
 }

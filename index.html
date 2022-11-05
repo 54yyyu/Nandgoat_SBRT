@@ -1,3 +1,4 @@
+<!-- Joystick code: https://github.com/bobboteck/JoyStick -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,21 +10,61 @@
     <script src="joy.js"></script>
 </head>
 <body>
-    <div id="grid">
-        <button id="w" type="press">W</button>
-        <button id="a" type="press">A</button>
-        <button id="s" type="press">S</button>
-        <button id="d" type="press">D</button>
-        <button id="j" type="tap">J</button>
-        <button id="k" type="tap">K</button>
+    <button onclick="switchKeys(false)">Joystick</button>
+    <button onclick="switchKeys(true)">Keyboard</button>
+    <div id="faceWrapper">
+        <span class="ear inverse">ጋ</span>
+        <div id="face">
+            <div id="controls" class="flex">
+                <div id="left">
+                    <div id="joy1Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
+                    <div id="wasd" class="wasdLayout">
+                        <div class="flex">
+                            <button id="w" type="press">W</button>
+                        </div>
+                        <div class="flex">
+                            <button id="a" type="press">A</button>
+                            <button id="s" type="press">S</button>
+                            <button id="d" type="press">D</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="tapButtons" class="flex">
+                    <button id="j" type="tap">J</button>
+                    <button id="k" type="tap">K</button>
+                </div>
+                <div id="right">
+                    <div id="joy2Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
+                    <div id="arrows" class="wasdLayout">
+                        <div class="flex">
+                            <button id="arrowup" type="press">↑</button>
+                        </div>
+                        <div class="flex">
+                            <button id="arrowleft" type="press">←</button>
+                            <button id="arrowdown" type="press">↓</button>
+                            <button id="arrowright" type="press">→</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="nose">ʖ</div>
+            <div id="mouth">‿</div>
+        </div>
+        <span class="ear">ጋ</span>
     </div>
-    <div id="joy1Div" style="width:200px;height:200px;margin:50px"></div> 
+    
     Posizione X:<input id="joy1PosizioneX" type="text" /><br />
     Posizione Y:<input id="joy1PosizioneY" type="text" /><br />
     Direzione:<input id="joy1Direzione" type="text" /><br />
     X :<input id="joy1X" type="text" /></br>
     Y :<input id="joy1Y" type="text" />
-    
+
+    Posizione X:<input id="joy2PosizioneX" type="text" /><br />
+    Posizione Y:<input id="joy2PosizioneY" type="text" /><br />
+    Direzione:<input id="joy2Direzione" type="text" /><br />
+    X :<input id="joy2X" type="text" /></br>
+    Y :<input id="joy2Y" type="text" />
+
     <p id="output"></p>
     
     <script type="text/javascript">
@@ -34,12 +75,35 @@
         var joy1Y = document.getElementById("joy1Y");
         
         // Create JoyStick object into the DIV 'joy1Div'
-        var Joy1 = new JoyStick('joy1Div', {}, function(stickData) {
+        var Joy1 = new JoyStick('joy1Div', {
+            internalFillColor: '#AA0000',
+            internalStrokeColor: '#330000',
+            externalStrokeColor: '#800000',
+        }, function(stickData) {
             joy1IinputPosX.value = stickData.xPosition;
             joy1InputPosY.value = stickData.yPosition;
             joy1Direzione.value = stickData.cardinalDirection;
             joy1X.value = stickData.x;
             joy1Y.value = stickData.y;
+        });
+
+        var joy2IinputPosX = document.getElementById("joy2PosizioneX");
+        var joy2InputPosY = document.getElementById("joy2PosizioneY");
+        var joy2Direzione = document.getElementById("joy2Direzione");
+        var joy2X = document.getElementById("joy2X");
+        var joy2Y = document.getElementById("joy2Y");
+        
+        // Create JoyStick object into the DIV 'joy1Div'
+        var Joy1 = new JoyStick('joy2Div', {
+            internalFillColor: '#0000AA',
+            internalStrokeColor: '#000033',
+            externalStrokeColor: '#000080',
+        }, function(stickData) {
+            joy2IinputPosX.value = stickData.xPosition;
+            joy2InputPosY.value = stickData.yPosition;
+            joy2Direzione.value = stickData.cardinalDirection;
+            joy2X.value = stickData.x;
+            joy2Y.value = stickData.y;
         });
     </script>
     <script src="script.js"></script>
