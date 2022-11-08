@@ -4,6 +4,8 @@ var allKeys = document.querySelectorAll("#tapButtons > *, .wasdLayout button");
 var joysticks = document.getElementsByClassName("joystick");
 var keys = document.getElementsByClassName("wasdLayout");
 
+var input = [0,0,0,0,0,0];
+console.log(input);
 switchKeys(false);
 
 for (let i = 0; i < allKeys.length; i++) {
@@ -44,6 +46,14 @@ function enter(e, key) {
         return;
     key.toggleAttribute("lock");
     key.toggleAttribute("on");
+    
+    if (key.hasAttribute("out")) {
+        if (key.hasAttribute("on"))
+            input[key.getAttribute("out")] += parseInt(key.getAttribute("val"));
+        else
+            input[key.getAttribute("out")] -= parseInt(key.getAttribute("val"));
+    }
+    console.log(input);
 }
 
 function exit(e, key) {
@@ -53,8 +63,22 @@ function exit(e, key) {
         return; 
     text.innerText = e.key + "\n" + text.innerText;
     key.toggleAttribute("lock");
-    if (key.getAttribute("type") == "press")
-        key.toggleAttribute("on");
+    
+    if (key.getAttribute("type") == "press") {
+        key.toggleAttribute("on");  
+        if (key.hasAttribute("out")) {
+            if (key.hasAttribute("on"))
+                input[key.getAttribute("out")] += parseInt(key.getAttribute("val"));
+            else
+                input[key.getAttribute("out")] -= parseInt(key.getAttribute("val"));
+        }
+    }
+    console.log(input);
+}
+
+function joystickOut(val, o) {
+    input[o] = val / 100;
+    console.log(input);
 }
 
 function switchKeys(isKeyboard) {

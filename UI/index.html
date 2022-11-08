@@ -20,35 +20,35 @@
                     <div id="joy1Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
                     <div id="wasd" class="wasdLayout">
                         <div class="flex">
-                            <button id="w" type="press">W</button>
+                            <button id="w" type="press" out="0" val="1">W</button>
                         </div>
                         <div class="flex">
-                            <button id="a" type="press">A</button>
-                            <button id="s" type="press">S</button>
-                            <button id="d" type="press">D</button>
+                            <button id="a" type="press" out="1" val="-1">A</button>
+                            <button id="s" type="press" out="0" val="-1">S</button>
+                            <button id="d" type="press" out="1" val="1">D</button>
                         </div>
                     </div>
                 </div>
                 <div id="tapButtons" class="flex">
-                    <button id="j" type="tap">J</button>
-                    <button id="k" type="tap">K</button>
+                    <button id="j" type="tap" out="4" val="1">J</button>
+                    <button id="k" type="tap" out="5" val="1">K</button>
                 </div>
                 <div id="right">
                     <div id="joy2Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
                     <div id="arrows" class="wasdLayout">
                         <div class="flex">
-                            <button id="arrowup" type="press">↑</button>
+                            <button id="arrowup" type="press" out="2" val="1">↑</button>
                         </div>
                         <div class="flex">
-                            <button id="arrowleft" type="press">←</button>
-                            <button id="arrowdown" type="press">↓</button>
-                            <button id="arrowright" type="press">→</button>
+                            <button id="arrowleft" type="press" out="3" val="-1">←</button>
+                            <button id="arrowdown" type="press" out="2" val="-1">↓</button>
+                            <button id="arrowright" type="press" out="3" val="1">→</button>
                         </div>
                     </div>
                 </div>
             </div>
-            <div id="nose">ʖ</div>
-            <div id="mouth">‿</div>
+            <span id="nose">ʖ</span>
+            <span id="mouth">‿</span>
         </div>
         <span class="ear">ጋ</span>
     </div>
@@ -85,6 +85,9 @@
             joy1Direzione.value = stickData.cardinalDirection;
             joy1X.value = stickData.x;
             joy1Y.value = stickData.y;
+
+            joystickOut(stickData.x, 1);
+            joystickOut(stickData.y, 0);
         });
 
         var joy2IinputPosX = document.getElementById("joy2PosizioneX");
@@ -104,6 +107,9 @@
             joy2Direzione.value = stickData.cardinalDirection;
             joy2X.value = stickData.x;
             joy2Y.value = stickData.y;
+            
+            joystickOut(stickData.x, 3);
+            joystickOut(stickData.y, 2);
         });
     </script>
     <script src="script.js"></script>

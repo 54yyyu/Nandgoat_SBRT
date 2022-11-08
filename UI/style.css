@@ -9,7 +9,8 @@
 }
 
 #face {
-    display: inline-block;
+    display: inline-flex;
+    flex-direction: column;
     text-align: center;
     border-width: 0 0 1px;
     border-style: solid;
@@ -79,7 +80,7 @@
 }
 
 .ear {
-    font-size: 50px;
+    font-size: 80px;
 }
 
 .inverse {
