@@ -10,48 +10,23 @@
     <script src="joy.js"></script>
 </head>
 <body>
-    <button onclick="switchKeys(false)">Joystick</button>
-    <button onclick="switchKeys(true)">Keyboard</button>
     <div id="faceWrapper">
         <span class="ear inverse">ጋ</span>
         <div id="face">
             <div id="controls" class="flex">
-                <div id="left">
-                    <div id="joy1Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
-                    <div id="wasd" class="wasdLayout">
-                        <div class="flex">
-                            <button id="w" type="press" out="0" val="1">W</button>
-                        </div>
-                        <div class="flex">
-                            <button id="a" type="press" out="1" val="-1">A</button>
-                            <button id="s" type="press" out="0" val="-1">S</button>
-                            <button id="d" type="press" out="1" val="1">D</button>
-                        </div>
-                    </div>
-                </div>
+                <div id="joy1Div" style="width:200px;height:200px;margin:10px" class="joystick"></div>
                 <div id="tapButtons" class="flex">
-                    <button id="j" type="tap" out="4" val="1">J</button>
-                    <button id="k" type="tap" out="5" val="1">K</button>
+                    <button id="j" out="4" class="tap">J</button>
+                    <button id="k" out="5" class="tap">K</button>
                 </div>
-                <div id="right">
-                    <div id="joy2Div" style="width:200px;height:200px;margin:50px" class="joystick"></div>
-                    <div id="arrows" class="wasdLayout">
-                        <div class="flex">
-                            <button id="arrowup" type="press" out="2" val="1">↑</button>
-                        </div>
-                        <div class="flex">
-                            <button id="arrowleft" type="press" out="3" val="-1">←</button>
-                            <button id="arrowdown" type="press" out="2" val="-1">↓</button>
-                            <button id="arrowright" type="press" out="3" val="1">→</button>
-                        </div>
-                    </div>
-                </div>
+                <div id="joy2Div" style="width:200px;height:200px;margin:10px" class="joystick"></div>
             </div>
-            <span id="nose">ʖ</span>
-            <span id="mouth">‿</span>
+            <span id="noseMouth">ʖ<br>‿</span>
         </div>
         <span class="ear">ጋ</span>
     </div>
+
+    <p id="output"></p>
     
     Posizione X:<input id="joy1PosizioneX" type="text" /><br />
     Posizione Y:<input id="joy1PosizioneY" type="text" /><br />
@@ -65,7 +40,7 @@
     X :<input id="joy2X" type="text" /></br>
     Y :<input id="joy2Y" type="text" />
 
-    <p id="output"></p>
+
     
     <script type="text/javascript">
         var joy1IinputPosX = document.getElementById("joy1PosizioneX");
@@ -87,9 +62,9 @@
             joy1Y.value = stickData.y;
 
             joystickOut(stickData.x, 1);
-            joystickOut(stickData.y, 0);
+            joystickOut(stickData.y / 0.95, 0);
         });
-
+        
         var joy2IinputPosX = document.getElementById("joy2PosizioneX");
         var joy2InputPosY = document.getElementById("joy2PosizioneY");
         var joy2Direzione = document.getElementById("joy2Direzione");
@@ -109,7 +84,7 @@
             joy2Y.value = stickData.y;
             
             joystickOut(stickData.x, 3);
-            joystickOut(stickData.y, 2);
+            joystickOut(stickData.y / 0.95, 2);
         });
     </script>
     <script src="script.js"></script>

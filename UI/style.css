@@ -1,5 +1,12 @@
 * {
     font-family: sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 #faceWrapper {
@@ -11,12 +18,14 @@
 #face {
     display: inline-flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
     border-width: 0 0 1px;
     border-style: solid;
     border-radius: 100%;
-    padding: 1000px 40px 50px;
-    margin: -1000px -80px 0;
+    padding: 1000px 100px 0;
+    margin: -1000px -110px 0;
 }
 
 :root {
@@ -48,7 +57,7 @@
     display: flex;
 }
 
-#tapButtons button, .wasdLayout button {
+button.tap {
     background-color: yellow;
     width: var(--keySize);
     height: var(--keySize);
@@ -56,7 +65,7 @@
     margin: 2px;
 }
 
-#tapButtons button[on], .wasdLayout button[on] {
+button[on]{
     background-color: red;
 }
 
@@ -65,18 +74,15 @@
     justify-content: center;
 }
 
-#nose {
-    text-align: center;
-    font-size: 60px;
-    margin-top: -50px;
-}
-
-#mouth {
+#noseMouth {
     text-align: center;
     font-size: 200px;
-    margin-top: -120px;
-    padding-bottom: 50px;
-    transform: scaleX(1.5);
+    margin-top: -50px;
+    padding-bottom: 80px;
+    margin-bottom: 20px;
+    line-height: 50%;
+    z-index: -1;
+    margin-top: 20px;
 }
 
 .ear {
@@ -84,5 +90,5 @@
 }
 
 .inverse {
-    transform:scaleX(-1);
+    transform: scaleX(-1);
 }
