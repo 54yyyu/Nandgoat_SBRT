@@ -10,6 +10,7 @@
     <script src="joy.js"></script>
 </head>
 <body>
+    <div id="video"></div>
     <div id="faceWrapper">
         <span class="ear inverse">ጋ</span>
         <div id="face">
@@ -61,8 +62,8 @@
             joy1X.value = stickData.x;
             joy1Y.value = stickData.y;
 
-            joystickOut(stickData.x, 1);
-            joystickOut(stickData.y / 0.95, 0);
+            joystickOut(stickData.x, 0);
+            joystickOut(stickData.y / 0.95, 1);
         });
         
         var joy2IinputPosX = document.getElementById("joy2PosizioneX");
@@ -83,8 +84,8 @@
             joy2X.value = stickData.x;
             joy2Y.value = stickData.y;
             
-            joystickOut(stickData.x, 3);
-            joystickOut(stickData.y / 0.95, 2);
+            joystickOut(stickData.x, 2);
+            joystickOut(stickData.y / 0.95, 3);
         });
     </script>
     <script src="script.js"></script>

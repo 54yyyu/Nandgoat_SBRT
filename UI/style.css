@@ -9,6 +9,13 @@
     user-select: none; /* Standard */
 }
 
+#video {
+    display: block;
+    width: 680px;
+    height: 480px;
+    background-color: red;
+}
+
 #faceWrapper {
     display: flex;
     justify-content: center;
