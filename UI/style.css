@@ -9,11 +9,19 @@
     user-select: none; /* Standard */
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 #video {
     display: block;
     width: 680px;
     height: 480px;
-    background-color: red;
+    background-color: yellow;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #faceWrapper {
